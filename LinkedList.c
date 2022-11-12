@@ -27,6 +27,7 @@ A little bit of tdlr when it comes to linked list:
 
 /*
 Problem: Cant the first element to print because condition set to when next is NULL => stop!
+FIX = instead of have the while condition to be: if temp->next = NULL => STOP! DO: if temp == NULL STOP!
 */
 
 int main(void)
@@ -82,7 +83,7 @@ lklist* insertlist(lklist* list, int number)
 bool find(lklist* list, int number) // Get the head pointer of the linked list and a value it should compare to 
 {
     lklist* temp = list; // We never want to mess with the head 
-    while (temp->next != NULL)
+    while (temp != NULL)
     {
         if (temp->number == number)
         {
@@ -90,10 +91,6 @@ bool find(lklist* list, int number) // Get the head pointer of the linked list a
         }
 
         temp = temp->next;
-    }
-    if (temp->number == number) // Having this extra condition because i dont know how to accesss the last element in a linked lsit 
-    {
-        return true;
     }
 
     return false;
@@ -103,12 +100,12 @@ void printlist(lklist* list)
 {
     lklist *node = list;
     printf("This linked list consist of the following:\n");
-    while (node->next != NULL)
+    while (node != NULL)
     {
         printf("%i\n", node->number);
         node = node->next;
     }
-    printf("%i\n", node->number); // Last element 
+    
 
 }
 
