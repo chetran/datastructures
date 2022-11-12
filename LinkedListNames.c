@@ -58,18 +58,17 @@ linkedlist* insertPerson(linkedlist* list, char* newperson)
 void printList(linkedlist* list)
 {
     linkedlist* temp = list;
-    while (temp->next != NULL)
+    while (temp != NULL)
     {
         printf("%s\n", temp->name);
         temp = temp->next;
     }
-    printf("%s\n", temp->name);
 }
 
 bool find(linkedlist* list, char* person)
 {
     linkedlist* temp = list;
-    while (temp->next != NULL)
+    while (temp != NULL)
     {
         if (strcmp(temp->name, person) == 0)
         {
@@ -77,10 +76,6 @@ bool find(linkedlist* list, char* person)
         }
         temp = temp->next;
     }
-    if (strcmp(temp->name, person) == 0)
-        {
-            return true;
-        }
     return false;
 }
 
