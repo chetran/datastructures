@@ -129,7 +129,7 @@ lklist* SortedInsertList(lklist* list, int number)
         return NULL;
     }
     
-    // Basically we need to variables to be able to go "back in time" 
+    // Basically we need two variables to be able to go "back in time" 
     lklist *temp = list;
     lklist *prev = NULL; // It's intially set to NULL because we haven't gone back in time yet and its gonna be useful in the loop down below
     
@@ -147,7 +147,7 @@ lklist* SortedInsertList(lklist* list, int number)
                 return new;
             }
             
-            // If prev != NULL we're inside the linked list somewhere, we want new to point at the temp which is greater than new and then set prev to point to new
+            // If prev != NULL we're inside the linked list somewhere, we want "new" to point at the "temp" which is greater than "new" and then set "prev" to point to "new"
             // Otherwise we end up orphaning the previous part of the list. 
             new->next = temp;
             prev->next = new;
@@ -158,7 +158,7 @@ lklist* SortedInsertList(lklist* list, int number)
         temp = temp->next;
     }
 
-    // If we happend to go through the entire list ("new" is the biggest number), prev (last element) should point at new and new should point at NULL
+    // If we happend to go through the entire list ("new" is the biggest number), "prev" (last element) should point at "new" and "new" should point at NULL
     prev->next = new;
     new->next = NULL;
     
